@@ -1,100 +1,140 @@
-# Lipstick Effect on Books: Economic Cycles vs Book Consumption
+# 📊 Lipstick Effect on Books & Consumer Goods: Economic Cycles vs Consumption Behaviour
 
 ## Project Overview
 
-This project explores whether a “lipstick effect” exists in book consumption — i.e., whether people tend to buy more affordable luxury goods (such as books) during periods of economic change.
+This project investigates whether a “lipstick effect” exists in consumer behaviour during economic cycles — specifically whether discretionary spending remains stable or shifts during periods of economic decline.
 
-The analysis combines historical economic data (GDP over time) with book-related datasets to investigate how consumer behaviour changes across countries and time periods.
+Rather than focusing only on books, the project expands the analysis to multiple categories of consumer expenditure to better capture behavioural responses to macroeconomic changes.
 
-The project integrates:
-- Data cleaning and preprocessing (Python)
-- Statistical analysis and exploration (Python / Jupyter Notebook)
-- Data storage and querying (SQL Server)
-- Data visualisation and dashboards (Power BI)
+The study combines:
+- Macroeconomic indicators (GDP)
+- Retail consumption categories (Eurostat)
+- Time-series analysis
+- Data visualisation and dashboard development
 
----
-
-## Research Question
-
-Does book consumption increase during periods of economic decline or stagnation, similar to the “lipstick effect” observed in consumer behaviour?
+The goal is to understand how different types of consumption respond to economic fluctuations across countries and time.
 
 ---
 
-## Datasets Used
+## 🧠 Research Question
 
-### 1. World GDP Over Time
-- Source: Kaggle
-- Link: https://www.kaggle.com/datasets/willianoliveiragibin/world-gdp-over-the-last-1700-2015
-- Description: Historical GDP data across countries over time.
+How do different categories of consumer spending behave during economic cycles, and is there evidence of a “lipstick effect” in discretionary consumption?
 
-### 2. Book Sales / Book Consumption Dataset
-- Source: Kaggle
-- Link: https://www.kaggle.com/datasets/willianoliveiragibin/books-sells
-- Description: Dataset containing book-related consumption/sales indicators across countries and time.
+Sub-questions:
+- Do discretionary goods remain stable during recessions?
+- Do consumers shift spending between essentials and non-essentials?
+- How does consumption volatility compare to GDP changes?
 
 ---
 
-## Tools & Technologies
+## 📦 Datasets Used
 
-- Python (Pandas, NumPy, Matplotlib)
-- Jupyter Notebook
+### 1. GDP and Macroeconomic Indicators
+- Source: Eurostat / Kaggle (historical GDP dataset)
+- Description: Time-series GDP data used to represent economic cycles
+- Indicator: Gross Domestic Product (B1GQ / CLV_PCH_PRE)
+
+---
+
+### 2. Consumer Retail Expenditure (Eurostat)
+
+- Source: Eurostat (European Commission)
+- Licence: European Union Open Data Licence (EU ODL)
+- Dataset: Structural Business Statistics / Retail Trade
+
+Selected categories:
+
+#### 🟡 G472 – Essential consumption
+Retail sale of food, beverages and tobacco
+
+#### 🟠 G47_NF_HLTH – Personal care & pharmacy goods
+Retail sale of pharmaceuticals, cosmetics, and personal care products
+
+#### 🟢 G476 – Discretionary cultural goods
+Retail sale of cultural and recreational goods (e.g. books, games, entertainment goods)
+
+---
+
+## 🛠️ Tools & Technologies
+
+- Python (Pandas, NumPy, Matplotlib, Seaborn)
+- Jupyter Notebooks
 - SQL Server (data storage & querying)
-- Power BI (dashboard & visualisation)
+- Power BI (interactive dashboarding)
 - Git & GitHub (version control)
 
 ---
 
-## Data Cleaning & Preparation
+## 🧹 Data Cleaning & Preparation
 
-The following steps were performed:
+Key preprocessing steps:
 
-- Handling missing values
-- Standardising country codes
-- Aligning time-series formats across datasets
-- Removing duplicates and inconsistent entries
-- Normalising economic indicators for comparison
-
----
-
-## Analysis Performed
-
-- Time-series comparison between GDP and book consumption
-- Correlation analysis between economic indicators and book sales
-- Country-level comparisons
-- Trend analysis over long-term economic cycles
+- Standardisation of country codes and time formats
+- Handling missing and inconsistent values
+- Converting SDMX / Eurostat formats into analysis-ready tables
+- Aligning multi-country time series datasets
+- Removing duplicates and ensuring consistent panel structure
+- Normalising indices for cross-category comparison
 
 ---
 
-## Dashboard (Power BI)
+## 📊 Analytical Approach
+
+The analysis focuses on comparing consumption behaviour across three categories:
+
+- Essential spending (G472)
+- Semi-discretionary personal care (G47_NF_HLTH)
+- Discretionary cultural goods (G476)
+
+These are analysed alongside GDP to evaluate:
+
+- Sensitivity of consumption to economic cycles
+- Relative stability of discretionary vs essential spending
+- Evidence of substitution effects during downturns
+
+Methods used:
+- Time-series analysis
+- Correlation analysis
+- Cross-category comparison
+- Country-level comparison
+
+---
+
+## 📈 Dashboard (Power BI)
 
 The Power BI dashboard includes:
 
-- Global GDP trends over time
-- Book consumption trends by country
-- Side-by-side comparison of economic vs cultural consumption
-- Interactive filters (country, year range)
+- GDP trends over time
+- Consumption trends by category
+- Comparative analysis of essential vs discretionary spending
+- Country-level filters and time-series exploration
+- Economic cycle visualisation (recession periods vs recovery)
 
 ---
 
-## Key Insights (to be updated after analysis)
+## 📌 Key Insights (to be completed after analysis)
 
-- Relationship between economic cycles and cultural consumption
-- Identification of periods of increased book consumption
-- Country-level differences in behaviour
+- Behavioural differences between essential and discretionary consumption
+- Evidence of consumption smoothing or trade-down effects
+- Country-level variation in economic resilience
+- Sensitivity of cultural goods to economic downturns
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
-Lipstick_Effect_on_Books/
+Lipstick_Effect_on_Consumption/
 │
 ├── data/
 │ ├── raw/
 │ ├── processed/
 │
 ├── notebooks/
-│ ├── data_cleaning.ipynb
-│ ├── analysis.ipynb
+│ ├── 01_gdp_cleaning.ipynb
+│ ├── 02_sales_cleaning.ipynb
+│ ├── 03_EDA.ipynb
+│ ├── 04_exploratory_analysis.ipynb
+│ ├── 05_visualisation.ipynb
 │
 ├── sql/
 │ ├── schema.sql
@@ -105,27 +145,30 @@ Lipstick_Effect_on_Books/
 │
 ├── README.md
 
----
-
-## Data Sources & Licensing
-
-All datasets used are publicly available on Kaggle and are used strictly for educational and non-commercial purposes.
-
-- Kaggle dataset terms apply to original data sources
-- This project does not redistribute raw datasets
 
 ---
 
-## Future Improvements
+## 📜 Data Sources & Licensing
 
-- Add inflation-adjusted economic indicators
-- Improve statistical modelling (regression / forecasting)
-- Expand to multi-country comparative analysis
-- Deploy dashboard online (Power BI Service)
+This project uses publicly available datasets:
+
+- Eurostat datasets are used under the **European Union Open Data Licence (EU ODL)**
+- Kaggle datasets are used under their respective dataset licenses
+- No raw proprietary data is redistributed in this repository
 
 ---
 
-## Author
+## 🚀 Future Improvements
+
+- Incorporate inflation-adjusted real consumption indices
+- Apply regression analysis to quantify elasticity of demand
+- Introduce lag analysis between GDP and consumption responses
+- Expand dataset to include non-EU countries for comparison
+- Deploy Power BI dashboard online (Power BI Service)
+
+---
+
+## 👤 Author
 
 Kamile Kavaliauskaite  
-Data Analytics Portfolio Project  
+Data Analytics Portfolio Project
