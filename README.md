@@ -1,174 +1,147 @@
-# 📊 Lipstick Effect on Books & Consumer Goods: Economic Cycles vs Consumption Behaviour
+# Retail Consumption Cycles: Essential vs Discretionary Spending under Macroeconomic Conditions
 
 ## Project Overview
 
-This project investigates whether a “lipstick effect” exists in consumer behaviour during economic cycles — specifically whether discretionary spending remains stable or shifts during periods of economic decline.
+This project analyses how retail consumption patterns respond to macroeconomic conditions across European countries over time.
 
-Rather than focusing only on books, the project expands the analysis to multiple categories of consumer expenditure to better capture behavioural responses to macroeconomic changes.
+Instead of focusing on a single product category, the study examines the structure of retail trade, comparing essential and discretionary consumption sectors alongside macroeconomic indicators.
 
-The study combines:
-- Macroeconomic indicators (GDP)
-- Retail consumption categories (Eurostat)
-- Time-series analysis
-- Data visualisation and dashboard development
+The goal is to understand whether different types of retail activity behave differently during periods of economic expansion and slowdown, and whether certain sectors show greater resilience to macroeconomic fluctuations.
 
-The goal is to understand how different types of consumption respond to economic fluctuations across countries and time.
 
----
+## Research Question
 
-## 🧠 Research Question
+Main Research Question
 
-How do different categories of consumer spending behave during economic cycles, and is there evidence of a “lipstick effect” in discretionary consumption?
+How does retail consumption behaviour in Europe shift under macroeconomic fluctuations, particularly between essential goods and affordable luxury categories (lipstick effect)?
 
-Sub-questions:
-- Do discretionary goods remain stable during recessions?
-- Do consumers shift spending between essentials and non-essentials?
-- How does consumption volatility compare to GDP changes?
 
----
+Comparing essential vs discretionary retail consumption over time in Europe
+Observing whether affordable luxury categories show stability or resilience during downturns
+Relating retail fluctuations to GDP cycles across European countries (pooled Europe view)
+Identifying whether a lipstick effect pattern appears in aggregated European retail data
 
-## 📦 Datasets Used
 
-### 1. GDP and Macroeconomic Indicators
-- Source: Eurostat / Kaggle (historical GDP dataset)
-- Description: Time-series GDP data used to represent economic cycles
-- Indicator: Gross Domestic Product (B1GQ / CLV_PCH_PRE)
+## Datasets Used
 
----
-
-### 2. Consumer Retail Expenditure (Eurostat)
-
-- Source: Eurostat (European Commission)
-- Licence: European Union Open Data Licence (EU ODL)
-- Dataset: Structural Business Statistics / Retail Trade
-
+1. GDP and Macroeconomic Indicators
+Source: Eurostat
+Indicator: GDP (chain-linked volumes, 2010 prices)
+Unit: CLV10_MEUR (million euro, constant prices)
+Purpose: Represents macroeconomic conditions and economic cycles
+2. Retail Trade Data (Eurostat)
+Source: Eurostat Structural Business Statistics
+Classification: NACE Rev. 2 (Retail Trade – G47 sector)
 Selected categories:
+Code	Description	Interpretation
+G47	Total retail trade	Overall retail sector baseline
+G472	Food, beverages & tobacco retail	Essential consumption
+G47_NF_HLTH	Pharmacy & personal care	Semi-essential consumption
+G476	Cultural & recreational goods	Discretionary consumption
 
-#### 🟡 G472 – Essential consumption
-Retail sale of food, beverages and tobacco
 
-#### 🟠 G47_NF_HLTH – Personal care & pharmacy goods
-Retail sale of pharmaceuticals, cosmetics, and personal care products
+## Tools & Technologies
 
-#### 🟢 G476 – Discretionary cultural goods
-Retail sale of cultural and recreational goods (e.g. books, games, entertainment goods)
+Python (Pandas, NumPy)
+Matplotlib
+Jupyter Notebook
+Power BI (dashboard development)
+SQL (data storage & querying)
+Git & GitHub (version control)
 
----
 
-## 🛠️ Tools & Technologies
+## Data Cleaning & Preparation
 
-- Python (Pandas, NumPy, Matplotlib, Seaborn)
-- Jupyter Notebooks
-- SQL Server (data storage & querying)
-- Power BI (interactive dashboarding)
-- Git & GitHub (version control)
+Key preprocessing steps include:
 
----
+Standardisation of country codes and time format
+Filtering relevant NACE Rev. 2 retail categories
+Handling missing and invalid values
+Removing duplicates and ensuring panel consistency
+Converting data into analysis-ready time-series format
+Aligning GDP and retail datasets on country-year level
+Aggregating values where necessary for consistency
 
-## 🧹 Data Cleaning & Preparation
 
-Key preprocessing steps:
 
-- Standardisation of country codes and time formats
-- Handling missing and inconsistent values
-- Converting SDMX / Eurostat formats into analysis-ready tables
-- Aligning multi-country time series datasets
-- Removing duplicates and ensuring consistent panel structure
-- Normalising indices for cross-category comparison
+## Analytical Approach
 
----
+The analysis is structured into three levels:
 
-## 📊 Analytical Approach
+1. Macroeconomic Context
+GDP trends over time
+Country-level economic cycles
+Growth vs recession periods
+2. Retail Structure Analysis
+Total retail sector (G47)
+Essential vs semi-essential vs discretionary retail
+Category-level trend comparisons
+3. Macro–Retail Relationship
+Correlation between GDP and retail categories
+Sensitivity of consumption to economic cycles
+Cross-country comparisons of retail behaviour
 
-The analysis focuses on comparing consumption behaviour across three categories:
 
-- Essential spending (G472)
-- Semi-discretionary personal care (G47_NF_HLTH)
-- Discretionary cultural goods (G476)
 
-These are analysed alongside GDP to evaluate:
-
-- Sensitivity of consumption to economic cycles
-- Relative stability of discretionary vs essential spending
-- Evidence of substitution effects during downturns
-
-Methods used:
-- Time-series analysis
-- Correlation analysis
-- Cross-category comparison
-- Country-level comparison
-
----
-
-## 📈 Dashboard (Power BI)
+## Dashboard (Power BI)
 
 The Power BI dashboard includes:
 
-- GDP trends over time
-- Consumption trends by category
-- Comparative analysis of essential vs discretionary spending
-- Country-level filters and time-series exploration
-- Economic cycle visualisation (recession periods vs recovery)
+GDP trends across countries and time in Europe
+Retail sector performance (G47 and subcategories)
+Comparison of essential vs discretionary consumption
+Country-level filtering and time-series exploration
+Economic cycle visualisation
 
----
 
-## 📌 Key Insights (to be completed after analysis)
+## Key Insights (to be completed after EDA)
 
-- Behavioural differences between essential and discretionary consumption
-- Evidence of consumption smoothing or trade-down effects
-- Country-level variation in economic resilience
-- Sensitivity of cultural goods to economic downturns
+Sensitivity differences between essential and discretionary consumption
+Relationship between GDP fluctuations and retail structure changes in Europe
 
----
 
-## 📁 Project Structure
+## Project Structure
 
-Lipstick_Effect_on_Consumption/
+Retail_Consumption_Cycles/
 │
 ├── data/
-│ ├── raw/
-│ ├── processed/
+│   ├── raw/
+│   ├── processed/
 │
 ├── notebooks/
-│ ├── 01_gdp_cleaning.ipynb
-│ ├── 02_sales_cleaning.ipynb
-│ ├── 03_EDA.ipynb
-│ ├── 04_exploratory_analysis.ipynb
-│ ├── 05_visualisation.ipynb
+│   ├── 01_gdp_cleaning.ipynb
+│   ├── 02_sales_cleaning.ipynb
+│   ├── 03_data_integration.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_analysis.ipynb
 │
 ├── sql/
-│ ├── schema.sql
-│ ├── queries.sql
+│   ├── schema.sql
+│   ├── queries.sql
 │
 ├── powerbi/
-│ ├── dashboard.pbix
+│   ├── dashboard.pbix
 │
 ├── README.md
 
 
----
 
-## 📜 Data Sources & Licensing
+## Data Sources & Licensing
 
-This project uses publicly available datasets:
+Eurostat datasets used under the European Union Open Data Licence (EU ODL)
 
-- Eurostat datasets are used under the **European Union Open Data Licence (EU ODL)**
-- Kaggle datasets are used under their respective dataset licenses
-- No raw proprietary data is redistributed in this repository
 
----
+## Future Improvements
 
-## 🚀 Future Improvements
+Inflation-adjusted real consumption indices
+Regression analysis of GDP elasticity
+Lag analysis between GDP and retail response
+Expansion to non-European countries
+Deployment of Power BI dashboard online (Power BI Service)
+More granular sector breakdown (additional NACE levels)
 
-- Incorporate inflation-adjusted real consumption indices
-- Apply regression analysis to quantify elasticity of demand
-- Introduce lag analysis between GDP and consumption responses
-- Expand dataset to include non-EU countries for comparison
-- Deploy Power BI dashboard online (Power BI Service)
 
----
+## Author
 
-## 👤 Author
-
-Kamile Kavaliauskaite  
+Kamile Kavaliauskaite
 Data Analytics Portfolio Project
